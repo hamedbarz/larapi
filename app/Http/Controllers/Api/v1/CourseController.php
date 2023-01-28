@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Exceptions\CoursePrivateException;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Http\Resources\Api\v1\Course as CourseResource;
@@ -20,9 +21,10 @@ class CourseController extends Controller
 
     public function single(Course $course)
     {
+        throw new CoursePrivateException();
         //$course = Course::where('id');
         //return response()->json($course);
-        return new CourseResource($course);
+        //return new CourseResource($course);
         //return new CourseCollection($course);
     }
 }
